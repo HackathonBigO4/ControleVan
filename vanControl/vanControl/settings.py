@@ -1,6 +1,8 @@
 from pathlib import Path
 import os, psycopg2
 from dotenv import load_dotenv
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 
 load_dotenv()
 
@@ -78,13 +80,8 @@ WSGI_APPLICATION = 'vanControl.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': os.getenv('HOST'),
-        'NAME': os.getenv('NAME'),
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASSWORD'),
-        'PORT': os.getenv('PORT'),
-        'OPTIONS': {'sslmode': 'require'}, 
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'd.sqlite3'
     }
 }
 
