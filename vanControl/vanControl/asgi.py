@@ -12,7 +12,7 @@ application = ProtocolTypeRouter({
     'http': get_asgi_application(),
     'websocket': AuthMiddlewareStack(
         URLRouter(
-            vanControl.routing.websocket_urlpatters
+            vanControl.routing.websocket_urlpatterns,
         )
     ),
 })

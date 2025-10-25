@@ -28,7 +28,11 @@ INSTALLED_APPS = [
 
     'channels',
 ]
-
+CHANNEL_LAYERS ={
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
 ASGI_APPLICATION = 'vanControl.asgi.application'
 
 MIDDLEWARE = [
