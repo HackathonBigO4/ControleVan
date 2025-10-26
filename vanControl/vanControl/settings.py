@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'user',
     'chat',
     'map',
-    'travel',
     'channels',
 ]
 CHANNEL_LAYERS ={
