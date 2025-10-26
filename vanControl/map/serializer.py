@@ -4,31 +4,15 @@ from rest_framework import serializers
 from user.serializer import UserSerializer
 
 
-class AttendanceListSerializer(serializers.ModelSerializer):
-    passenger = UserSerializer(read_only=True)
-    passenger_id = serializers.PrimaryKeyRelatedField(
-        queryset=User.objects.all(),
-        source='passenger',
-        write_only=True
-    )
-
-    class Meta:
-        model = AttendanceList
-        fields = ['id', 'passenger', 'passenger_id', 'attended']
-
-
 class RouteSerializer(serializers.ModelSerializer):
-    driver = UserSerializer(source='driver_id', read_only=True)
-    attendance_list_detail = AttendanceListSerializer(
-        source='attendancelist_set', many=True,)
-    attendance_list = AttendanceListSerializer(
-        source='attendancelist_set', many=True)
+    # driver = UserSerializer(source='driver_id', read_only=True)
 
     class Meta:
         model = Route
         fields = [
             'id',
-            'driver',
+            # 'driver',
+            'attendance_list',         
             'starting_latitude',
             'starting_longitude',
             'final_latitude',
@@ -36,8 +20,6 @@ class RouteSerializer(serializers.ModelSerializer):
             'starting_time',
             'final_time',
             'total_time',
-            'attendance_list',          # para enviar dados
-            'attendance_list_detail',   # para ler dados completos
         ]
         read_only_fields = ['id', 'starting_time']
 

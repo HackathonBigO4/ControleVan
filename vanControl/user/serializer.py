@@ -1,6 +1,6 @@
-from django.contrib.auth.models import Group, User
+from django.contrib.auth.models import Group
 from rest_framework import serializers
-from user.models import PersonalInfo
+from user.models import User
 
 class UserRouteSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,15 +10,6 @@ class UserRouteSerializer(serializers.ModelSerializer):
             'username',
             'email',
         ]
-
-class PersonalInfoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = PersonalInfo
-        fields = [
-            'phone_number',
-            'cpf',
-            'user',
-        ]
 class UserSerializer(serializers.ModelSerializer):
     
     class Meta :
@@ -26,9 +17,11 @@ class UserSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'username',
+            'cpf',
+            'password',
             'email',
             'groups',
-            'password',
+            'phone_number',
         ]
         extra_kwargs = {'password': {'write_only': True}}
     

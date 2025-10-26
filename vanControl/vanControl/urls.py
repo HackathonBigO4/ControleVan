@@ -10,7 +10,7 @@ router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'messages', MessageViewSet)
 router.register(r'routes', RouteViewSet)
-router.register(r'personalinfo', views.PersonalInfoViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -17,7 +17,8 @@ class Route(models.Model):
 class AttendanceList(models.Model):
     route = models.ForeignKey(Route, on_delete=models.SET_NULL,null=True,blank=True)
     passenger = models.ForeignKey(User, on_delete=models.SET_NULL,null=True,blank=True)
-    attended = models.BooleanField(default=False)
+    attended = models.BooleanField(default=False) 
+
 
 # VIAGEM
 # id motorista
