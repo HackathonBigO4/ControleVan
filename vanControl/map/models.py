@@ -18,20 +18,3 @@ class AttendanceList(models.Model):
     route = models.ForeignKey(Route, on_delete=models.SET_NULL,null=True,blank=True)
     passenger = models.ForeignKey(User, on_delete=models.SET_NULL,null=True,blank=True)
     attended = models.BooleanField(default=False) 
-
-
-# VIAGEM
-# id motorista
-
-# array id attendance_list(array de passengers) - Anterior ao inicio
-# array id attended_passengers(array de passengers) - Durante
-
-# Lat inicial - Inicial
-# Long inicial - Inicial
-
-# Lat Final - Final
-# Long Final - Final
-
-# hora_inicio - Inicial
-# hora_fim - Final
-# tempo_total - Final
